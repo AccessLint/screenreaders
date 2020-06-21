@@ -23,7 +23,8 @@ sleep 5
 # osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
 # osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
 
-kill "$(pidof VoiceOver)"
+pid=$(pgrep "VoiceOver")
+pkill "$pid"
 
 expected="$2"
 actual="$(pbpaste)"

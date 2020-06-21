@@ -6,9 +6,6 @@ jobs: # a basic unit of work in a run
     steps: # a series of commands to run
       - checkout  # pull down code from your version control system.
       - run:
-          name: Setup
-          command: bin/setup
-      - run:
           name: Run Unit Tests
           command: bin/start "https://google.com" "Search"
       - store_artifacts: # store this build output. Read more: https://circleci.com/docs/2.0/artifacts/
