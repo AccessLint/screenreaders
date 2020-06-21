@@ -18,13 +18,9 @@ echo "Need root to temporarily override VoiceOver launch settings"
 
 open "$1" -a Safari
 
-sleep 5
-
+# sleep 5
 # osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
 # osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
-
-pid=$(pgrep "VoiceOver")
-pkill "$pid"
 
 expected="$2"
 actual="$(pbpaste)"
@@ -35,3 +31,8 @@ if [[ "$actual" =~ .*"$expected".* ]]; then
 else
   echo "❌failed 1 assertion. Expected \"$expected\" in \"$actual\""
 fi
+
+pid=$(pgrep "VoiceOver")
+echo $pid
+pkill "$pid"
+exit
