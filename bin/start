@@ -7,11 +7,11 @@ echo "Need root to temporarily override VoiceOver launch settings"
 # temporarily set VoiceOver daemon launch arguments
 # -p -- skip splash screen
 # -t appname -- limit VoiceOver activity to target app
-# sudo launchctl debug gui/$UID/com.apple.VoiceOver -- \
-#   "/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOver" \
-#   -p \
-#   -t "Safari" \
-#   launchd -s
+sudo launchctl debug gui/$UID/com.apple.VoiceOver -- \
+  "/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOver" \
+  -p \
+  -t "Safari" \
+  launchd -s
 
 # start VoiceOver
 /System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
