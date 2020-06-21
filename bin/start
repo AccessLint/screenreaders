@@ -10,21 +10,29 @@ echo "Need root to temporarily override VoiceOver launch settings"
 sudo launchctl debug gui/$UID/com.apple.VoiceOver -- \
   "/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOver" \
   -p \
-  -t "$@" \
+  -t "Safari" \
   launchd -s
 
 # start VoiceOver
 /System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter &
 
-open -a "$@"
+open "$1" -a Safari
 
 sleep 5
 
 osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
-
-expected="Welcome to macOS. VoiceOver is on. Safari Favorites window toolbar"
-actual="$(pbpaste)"
-
-test "$expected" = "$actual" && echo "passed 1 assertion" || echo "failed 1 assertion. Expected $expected, got $actual"
+osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
 
 kill "$(pidof VoiceOver)"
+
+expected="$2"
+actual="$(pbpaste)"
+
+open -a Terminal
+
+if [[ "$actual" =~ .*"$expected".* ]]; then
+  echo "👍 passed assertion" || \
+  exit 0
+else
+  echo "❌failed 1 assertion. Expected \"$expected\" in \"$actual\""
+fi
