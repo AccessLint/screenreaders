@@ -2,16 +2,8 @@
 
 set -e
 
-echo "Need root to temporarily override VoiceOver launch settings"
-
-# temporarily set VoiceOver daemon launch arguments
-# -p -- skip splash screen
-# -t appname -- limit VoiceOver activity to target app
-sudo launchctl debug gui/$UID/com.apple.VoiceOver -- \
-  "/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOver" \
-  -p \
-  -t "Safari" \
-  launchd -s
+# Turn off splash screen
+/usr/libexec/PlistBuddy -c "Set :doNotShowSplashScreen YES" ~/Library/Preferences/com.apple.VoiceOverTraining.plist
 
 # start VoiceOver
 /System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
@@ -25,6 +17,11 @@ osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
 expected="$2"
 actual="$(pbpaste)"
 
+echo "$actual"
+
+pid=$(pgrep "VoiceOver")
+pkill "$pid"
+
 if [[ "$actual" =~ .*"$expected".* ]]; then
   echo "👍 passed assertion" || \
   exit 0
@@ -32,6 +29,4 @@ else
   echo "❌failed 1 assertion. Expected \"$expected\" in \"$actual\""
 fi
 
-pid=$(pgrep "VoiceOver")
-pkill "$pid"
 exit
