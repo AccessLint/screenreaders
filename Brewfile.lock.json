@@ -1,0 +1,80 @@
+{
+  "entries": {
+    "brew": {
+      "cliclick": {
+        "version": "4.0.1",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/cliclick-4.0.1.catalina.bottle.tar.gz",
+              "sha256": "9ffcef6839fb396f022e415925f0e5f2cd1434d0eb723694d950d84fbaa3fcda"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/cliclick-4.0.1.mojave.bottle.tar.gz",
+              "sha256": "bc373ee9ec978d416491fd82b3c25d02755b004b0abc1f5a73ff0b39e57b6b33"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/cliclick-4.0.1.high_sierra.bottle.tar.gz",
+              "sha256": "c371cb5b700e4a5f6495545b5f83e5414fc0e0cb98be05231a7abdf6c6607ff4"
+            },
+            "sierra": {
+              "url": "https://homebrew.bintray.com/bottles/cliclick-4.0.1.sierra.bottle.tar.gz",
+              "sha256": "bb47d1d8f4c81f31dc9372b5c06d3f74ecb25026805936f62e08744d1b888ecb"
+            },
+            "el_capitan": {
+              "url": "https://homebrew.bintray.com/bottles/cliclick-4.0.1.el_capitan.bottle.tar.gz",
+              "sha256": "e8eca6037032ad2b68b9e8c4faa40adb770b10f868448e47852571f1829aa462"
+            }
+          }
+        }
+      },
+      "pidof": {
+        "version": "0.1.4",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/pidof-0.1.4.catalina.bottle.2.tar.gz",
+              "sha256": "634f42559aaa0582a6700c268737ba7cb7ec3bdadf2f3aa37c5a846604759459"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/pidof-0.1.4.mojave.bottle.2.tar.gz",
+              "sha256": "1a88c923954c4511fb64fe6cbfb27f5248c39d1676053c671ab71c652a377a2f"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/pidof-0.1.4.high_sierra.bottle.2.tar.gz",
+              "sha256": "fd5f89cf3a9685142e08a23980d9438e961096d74ee508a96ccbaecb55da6e1a"
+            },
+            "sierra": {
+              "url": "https://homebrew.bintray.com/bottles/pidof-0.1.4.sierra.bottle.2.tar.gz",
+              "sha256": "6991d110a73724959f84edc398647e3cac5a029645daedef5f263ae51218130d"
+            },
+            "el_capitan": {
+              "url": "https://homebrew.bintray.com/bottles/pidof-0.1.4.el_capitan.bottle.2.tar.gz",
+              "sha256": "d02c826db5564d7750c0e309a771b164f7764250507955d0b87d09837c3c2ba6"
+            },
+            "mavericks": {
+              "url": "https://homebrew.bintray.com/bottles/pidof-0.1.4.mavericks.bottle.2.tar.gz",
+              "sha256": "54ffe0be6ef278aa45cacb856687df925bab1c117d1ab4c1a8f81ae835fb293e"
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "catalina": {
+        "HOMEBREW_VERSION": "2.4.0",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "9d97b89085c134569b39ee5dc12c6f64e112895a",
+        "CLT": "",
+        "Xcode": "11.3.1",
+        "macOS": "10.15.5"
+      }
+    }
+  }
+}
