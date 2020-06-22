@@ -2,6 +2,8 @@
 
 set -e
 
+env
+
 # Turn off splash screen
 /usr/libexec/PlistBuddy -c "Set :doNotShowSplashScreen YES" \
   ~/Library/Preferences/com.apple.VoiceOverTraining.plist || \
@@ -22,8 +24,6 @@ sleep 5
 osascript -e 'tell application "System Events" to tell process "VoiceOver Utility" to click checkbox "Allow VoiceOver to be controlled with AppleScript" of group 1 of window "VoiceOver Utility"'
 
 sleep 3
-
-
 osascript -e 'tell application "System Events" to key code 36'
 sleep 3
 osascript -e 'tell application "System Events" to key code 36'
