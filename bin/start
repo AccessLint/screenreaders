@@ -8,19 +8,16 @@ set -e
   /usr/libexec/PlistBuddy -c "Add :doNotShowSplashScreen bool YES" \
   ~/Library/Preferences/com.apple.VoiceOverTraining.plist
 
+# start VoiceOver
+/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
+
 # Enable AppleScript
 /usr/libexec/PlistBuddy -c "Set :SCREnableAppleScript YES" \
   ~/Library/Preferences/com.apple.VoiceOver4/default.plist || \
   /usr/libexec/PlistBuddy -c "Add :SCREnableAppleScript bool YES" \
   ~/Library/Preferences/com.apple.VoiceOver4/default.plist
 
-osascript -e 'tell application "System Events" to tell process "VoiceOver Utility" to click checkbox "Allow VoiceOver to be controlled with AppleScript" of group 1 of window "VoiceOver Utility"'
-
-
 open "$1" -a Safari
-
-# start VoiceOver
-/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
 
 sleep 5
 
