@@ -14,10 +14,7 @@ set -e
   /usr/libexec/PlistBuddy -c "Add :SCREnableAppleScript bool YES" \
   ~/Library/Preferences/com.apple.VoiceOver4/default.plist
 
-# Enable osascript to edit VoiceOver prefs
-sudo security authorizationdb write system.preferences.accessibility allow
-
-osascript -e 'tell application "System Events" to tell process "VoiceOver Utility" to click checkbox "Allow VoiceOver to be controlled with AppleScript" of group 1 of window "VoiceOver Utility"'
+diskutil mount VoiceOver
 
 # start VoiceOver
 /System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
