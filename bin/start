@@ -20,7 +20,9 @@ set -e
 open "$1" -a Safari
 
 sleep 5
-osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
+
+osascript -e 'tell application "System Events" to tell process "VoiceOver Utility" to click checkbox "Allow VoiceOver to be controlled with AppleScript" of group 1 of window "VoiceOver Utility"'
+osascript -e 'tell application "VoiceOver" to copy to pasteboard'
 osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
 
 expected="$2"
@@ -33,4 +35,4 @@ else
 fi
 
 pid="$(pgrep "VoiceOver")"
-kill "$pid"
+pkill "$pid"
