@@ -14,6 +14,9 @@ set -e
   /usr/libexec/PlistBuddy -c "Add :SCREnableAppleScript bool YES" \
   ~/Library/Preferences/com.apple.VoiceOver4/default.plist
 
+osascript -e 'tell application "System Events" to tell process "VoiceOver Utility" to click checkbox "Allow VoiceOver to be controlled with AppleScript" of group 1 of window "VoiceOver Utility"'
+
+
 open "$1" -a Safari
 
 # start VoiceOver
