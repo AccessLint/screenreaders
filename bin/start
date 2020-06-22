@@ -6,6 +6,8 @@ set -e
 /usr/libexec/PlistBuddy -c "Set :doNotShowSplashScreen YES" ~/Library/Preferences/com.apple.VoiceOverTraining.plist || \
   /usr/libexec/PlistBuddy -c "Add :doNotShowSplashScreen bool YES" ~/Library/Preferences/com.apple.VoiceOverTraining.plist
 
+/usr/libexec/PlistBuddy -c "Set :SCREnableAppleScript YES" ~/Library/Preferences/com.apple.VoiceOver4/default.plist
+
 # start VoiceOver
 /System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
 
@@ -18,16 +20,11 @@ osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
 expected="$2"
 actual="$(pbpaste)"
 
-echo "$actual"
-
-pid=$(pgrep "VoiceOver")
-pkill "$pid"
-
 if [[ "$actual" =~ .*"$expected".* ]]; then
-  echo "👍 passed assertion" || \
-  exit 0
+  echo "👍 passed assertion"
 else
   echo "❌failed 1 assertion. Expected \"$expected\" in \"$actual\""
 fi
 
-exit
+pid="$(pgrep "VoiceOver")"
+kill "$pid"
