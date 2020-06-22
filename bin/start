@@ -3,7 +3,8 @@
 set -e
 
 # Turn off splash screen
-/usr/libexec/PlistBuddy -c "Set :doNotShowSplashScreen YES" ~/Library/Preferences/com.apple.VoiceOverTraining.plist
+/usr/libexec/PlistBuddy -c "Set :doNotShowSplashScreen YES" ~/Library/Preferences/com.apple.VoiceOverTraining.plist || \
+  /usr/libexec/PlistBuddy -c "Add :doNotShowSplashScreen bool YES" ~/Library/Preferences/com.apple.VoiceOverTraining.plist
 
 # start VoiceOver
 /System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
