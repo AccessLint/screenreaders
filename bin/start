@@ -14,10 +14,10 @@ set -e
   /usr/libexec/PlistBuddy -c "Add :SCREnableAppleScript bool YES" \
   ~/Library/Preferences/com.apple.VoiceOver4/default.plist
 
+open "$1" -a Safari
+
 # start VoiceOver
 /System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
-
-open "$1" -a Safari
 
 sleep 5
 
