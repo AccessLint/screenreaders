@@ -2,8 +2,6 @@
 
 set -e
 
-env
-
 # Turn off splash screen
 /usr/libexec/PlistBuddy -c "Set :doNotShowSplashScreen YES" \
   ~/Library/Preferences/com.apple.VoiceOverTraining.plist || \
@@ -19,15 +17,28 @@ sleep 5
 
 open -a "VoiceOver Utility"
 
-sleep 5
+sleep 3
 
-osascript -e 'tell application "System Events" to tell process "VoiceOver Utility" to click checkbox "Allow VoiceOver to be controlled with AppleScript" of group 1 of window "VoiceOver Utility"'
+# send key events to check VoiceOver applescript enablement and enter password
 
-sleep 3
-osascript -e 'tell application "System Events" to key code 36'
-sleep 3
-osascript -e 'tell application "System Events" to key code 36'
-sleep 3
+osascript -e 'tell application "System Events"' \
+ -e "key code 124" \
+ -e "key code 124" \
+ -e "key code 124" \
+ -e "key code 124" \
+ -e "key code 124" \
+ -e "key code 124" \
+ -e "key code 124" \
+ -e "key code 124" \
+ -e "key code 124" \
+ -e "key code 124" \
+ -e "key code 49" \
+ -e "end tell"
+
+sleep 1
+
+# osascript -e 'tell application "System Events" to tell process "VoiceOver Utility" to click checkbox "Allow VoiceOver to be controlled with AppleScript" of group 1 of window "VoiceOver Utility"'
+
 osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
 osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
 
