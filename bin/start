@@ -40,7 +40,7 @@ osascript -e 'tell application "System Events"' \
 
 sleep 1
 
-osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
+# osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
 osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
 
 expected="$2"
