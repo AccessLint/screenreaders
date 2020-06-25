@@ -2,6 +2,8 @@
 
 set -e
 
+echo "distiller:$AUTO_VO_PASSWORD" | sudo chpasswd
+
 # Turn off splash screen
 /usr/libexec/PlistBuddy -c "Set :doNotShowSplashScreen YES" \
   ~/Library/Preferences/com.apple.VoiceOverTraining.plist || \
