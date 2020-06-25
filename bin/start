@@ -11,9 +11,9 @@ set -e
 # start VoiceOver
 /System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
 
-open "$1" -a Safari
+# open "$1" -a Safari
 
-sleep 5
+sleep 3
 
 open -a "VoiceOver Utility"
 
@@ -36,8 +36,6 @@ osascript -e 'tell application "System Events"' \
  -e "end tell"
 
 sleep 1
-
-# osascript -e 'tell application "System Events" to tell process "VoiceOver Utility" to click checkbox "Allow VoiceOver to be controlled with AppleScript" of group 1 of window "VoiceOver Utility"'
 
 osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
 osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
