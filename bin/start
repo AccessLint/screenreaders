@@ -33,6 +33,9 @@ osascript -e 'tell application "System Events"' \
  -e "key code 124" \
  -e "key code 124" \
  -e "key code 49" \
+ -e "key code 36" \
+ -e "key code 36" \
+ -e "key code 36" \
  -e "end tell"
 
 sleep 1
