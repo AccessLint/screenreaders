@@ -48,11 +48,10 @@ osascript -e 'tell application "VoiceOver"' \
 expected="$2"
 actual="$(pbpaste)"
 
+echo $actual
+
 if [[ "$actual" =~ .*"$expected".* ]]; then
   echo "👍 passed assertion"
 else
   echo "❌failed 1 assertion. Expected \"$expected\" in \"$actual\""
 fi
-
-pid="$(pgrep "VoiceOver")"
-pkill "$pid"
