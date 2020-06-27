@@ -38,8 +38,6 @@ osascript -e 'tell application "System Events"' \
  -e "key code 49" \
  -e "end tell"
 
-sleep 360
-
 echo "confirmation"
 osascript -e 'tell application "System Events"' \
  -e 'tell window 1 of process "SecurityAgent"' \
@@ -50,6 +48,8 @@ osascript -e 'tell application "System Events"' \
  -e "end tell" \
  -e "end tell"
 echo "end confirmation"
+
+sleep 3600
 
 sleep 1
 
