@@ -10,9 +10,6 @@ sudo dscl . -passwd /Users/distiller "$AUTO_VO_PASSWORD"
   /usr/libexec/PlistBuddy -c "Add :doNotShowSplashScreen bool YES" \
   ~/Library/Preferences/com.apple.VoiceOverTraining.plist
 
-# start VoiceOver
-/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
-
 # open "$1" -a Safari
 
 sleep 3
@@ -25,16 +22,19 @@ sleep 3
 
 echo "enable applescript"
 osascript -e 'tell application "System Events"' \
- -e "key code 124" \
- -e "key code 124" \
- -e "key code 124" \
- -e "key code 124" \
- -e "key code 124" \
- -e "key code 124" \
- -e "key code 124" \
- -e "key code 124" \
- -e "key code 124" \
- -e "key code 124" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
+ -e "key code 48" \
  -e "key code 49" \
  -e "end tell"
 
@@ -49,7 +49,8 @@ osascript -e 'tell application "System Events"' \
  -e "end tell"
 echo "end confirmation"
 
-sleep 3600
+# start VoiceOver
+/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
 
 sleep 1
 
