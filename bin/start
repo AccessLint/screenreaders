@@ -39,8 +39,10 @@ osascript -e 'tell application "System Events"' \
  -e "end tell"
 
 echo "confirmation"
-osascript -e 'tell process "SecurityAgent"' \
+osascript -e 'tell application "System Events"' \
+ -e 'tell window 1 of process "SecurityAgent"' \
  -e "click" \
+ -e "end tell"
  -e "end tell"
 echo "end confirmation"
 
