@@ -2,7 +2,7 @@
 
 set -e
 
-dscl . -passwd /Users/distiller "$AUTO_VO_PASSWORD"
+sudo dscl . -passwd /Users/distiller "$AUTO_VO_PASSWORD"
 
 # Turn off splash screen
 /usr/libexec/PlistBuddy -c "Set :doNotShowSplashScreen YES" \
