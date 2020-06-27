@@ -39,13 +39,13 @@ osascript -e 'tell application "System Events"' \
  -e "end tell"
 
 echo "confirmation"
+
 osascript -e 'tell process "SecurityAgent"' \
- -e "click button 'Modify Settings'" \
+ -e 'click button "Modify Settings"' \
  -e "end tell"
 
 sleep 1
 
-echo "Copy phrase"
 osascript -e 'tell application "VoiceOver"' \
   -e "copy to pasteboard last phrase" \
   -e "grab screenshot vo cursor" \
