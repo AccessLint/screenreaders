@@ -16,7 +16,7 @@ sleep 3
 
 open -a "VoiceOver Utility"
 
-sleep 3
+sleep 5
 
 # send key events to check VoiceOver applescript enablement and enter password
 
@@ -36,7 +36,12 @@ osascript -e 'tell application "System Events"' \
  -e "key code 48" \
  -e "key code 48" \
  -e "key code 49" \
+ -e "key code 36" \
+ -e "key code 36" \
+ -e "key code 48" \
  -e "end tell"
+
+sleep 180
 
 echo "confirmation"
 osascript -e 'tell application "System Events"' \
