@@ -23,6 +23,7 @@ sleep 3
 
 # send key events to check VoiceOver applescript enablement and enter password
 
+echo "enable applescript"
 osascript -e 'tell application "System Events"' \
  -e "key code 124" \
  -e "key code 124" \
@@ -36,6 +37,10 @@ osascript -e 'tell application "System Events"' \
  -e "key code 124" \
  -e "key code 49" \
  -e "end tell"
+
+echo "confirmation"
+echo $USER
+echo $AUTO_VO_PASSWORD
 
 osascript -e 'tell application "SecurityAgent"' \
  -e 'set value of text field 1 of window 1 to (system attribute "USER")' \
