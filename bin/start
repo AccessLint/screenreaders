@@ -40,8 +40,10 @@ osascript -e 'tell application "System Events"' \
 
 echo "confirmation"
 
-osascript -e 'tell process "SecurityAgent"' \
- -e 'click button "Modify Settings"' \
+osascript -e 'tell application "System Events"' \
+ -e 'tell process "SecurityAgent"' \
+ -e 'click button 1' \
+ -e "end tell"
  -e "end tell"
 
 sleep 1
