@@ -37,7 +37,7 @@ osascript -e 'tell application "System Events"' \
  -e "key code 49" \
  -e 'set value of text field 1 of window 1 to (system attribute "USER")' \
  -e 'set value of text field 2 of window 1 to (system attribute "AUTO_VO_PASSWORD")' \
- -e 'click button "Modify Settings" of window 1' \
+ -e 'click button "Modify Settings"' \
  -e "end tell"
 
 sleep 1
