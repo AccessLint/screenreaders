@@ -39,11 +39,12 @@ osascript -e 'tell application "System Events"' \
  -e "end tell"
 
 echo "confirmation"
-osascript -e 'tell application "SecurityAgent"' \
- -e "set value of 'User Name:' to 'distiller'" \
- -e "click button 'Modify Settings'" \
+osascript -e 'tell process "SecurityAgent"' \
  -e "end tell"
 
+#  -e "set value of 'User Name:' to '$USER'" \
+#  -e "set value of 'Password:' to '$AUTO_VO_PASSWORD'" \
+#  -e "click button 'Modify Settings'" \
 sleep 1
 
 echo "Copy phrase"
