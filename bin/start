@@ -41,8 +41,8 @@ osascript -e 'tell application "System Events"' \
 echo "confirmation"
 osascript -e 'tell application "System Events"' \
  -e 'tell window 1 of process "SecurityAgent"' \
- -e "click" \
- -e "end tell"
+ -e 'set value of text field 1 to "distiller"' \
+ -e "end tell" \
  -e "end tell"
 echo "end confirmation"
 
