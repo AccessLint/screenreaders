@@ -11,10 +11,7 @@ sudo touch /var/db/.AppleSetupDone
 echo "copying script"
 sudo cp bin/start /Users/voiceover
 echo "logging in"
-sudo login -p -f voiceover
-echo "create db item"
-
-sudo touch /var/db/.AppleSetupDone
+echo "sudo touch /var/db/.AppleSetupDone" | sudo login -p -f voiceover
 
 echo "setting privacy defaults"
 SUBMIT_DIAGNOSTIC_DATA_TO_APPLE=FALSE
