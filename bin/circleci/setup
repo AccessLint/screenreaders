@@ -4,5 +4,6 @@ set -e
 
 sudo /usr/sbin/sysadminctl -addUser voiceover -fullName "VoiceOver User" -password "$AUTO_VO_PASSWORD" -admin
 sudo cp ~/Library/Preferences/com.apple.SetupAssistant.plist /Users/voiceover/Library/Preferences
+sudo touch /var/db/.AppleSetupDone
 sudo cp bin/start /Users/voiceover
 echo "$AUTO_VO_PASSWORD\n" | sudo login -p -f voiceover
