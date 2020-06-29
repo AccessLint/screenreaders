@@ -1,16 +1,17 @@
 version: 2.1
+commands:
+  setup:
+    description: "Setup user"
+    steps:
+      - run: sudo /usr/sbin/sysadminctl -addUser voiceover -fullName "VoiceOver User" -password "$AUTO_VO_PASSWORD" -admin
 jobs: # a basic unit of work in a run
   build: # runs not using `Workflows` must have a `build` job as entry point
     macos:  # indicate that we are using the macOS executor
       xcode: 11.5.0 # indicate our selected version of Xcode
     steps: # a series of commands to run
       - checkout  # pull down code from your version control system.
-      - setup:
-          name: setup
-          command: sudo /usr/sbin/sysadminctl -addUser voiceover -fullName "VoiceOver User" -password "$AUTO_VO_PASSWORD" -admin
-      - run:
-          name: run
-          command: su - voiceover -c 'bin/start "https://google.com" "Search"'
+      - setup
+      - run: su - voiceover -c 'bin/start "https://google.com" "Search"'
       - store_artifacts: # store this build output. Read more: https://circleci.com/docs/2.0/artifacts/
           path: ~/Desktop
           destination: tmp
