@@ -18,7 +18,8 @@ sleep 5
 
 # send key events to check VoiceOver applescript enablement and enter password
 
-screencapture ~/Desktop/1.png
+screencapture /Users/voiceover/Desktop/before-enable.png
+
 echo "enable applescript"
 osascript -e 'tell application "System Events"' \
  -e "key code 48" \
@@ -40,7 +41,7 @@ osascript -e 'tell application "System Events"' \
  -e "key code 48" \
  -e "end tell"
 
-screencapture ~/Desktop/2.png
+screencapture /Users/voiceover/Desktop/before-confirmed.png
 
 echo "confirmation"
 osascript -e 'tell application "System Events"' \
@@ -52,7 +53,8 @@ osascript -e 'tell application "System Events"' \
  -e "end tell" \
  -e "end tell"
 echo "end confirmation"
-screencapture ~/Desktop/3.png
+
+screencapture /Users/voiceover/Desktop/after-confirmed.png
 
 # start VoiceOver
 /System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
