@@ -2,7 +2,8 @@
 
 set -e
 
-sudo dscl . -passwd /Users/distiller "$AUTO_VO_PASSWORD"
+sudo /usr/sbin/sysadminctl -addUser voiceover -fullName "VoiceOver User" -password "$AUTO_VO_PASSWORD" -admin
+sudo login -f -p voiceover
 
 # Turn off splash screen
 /usr/libexec/PlistBuddy -c "Set :doNotShowSplashScreen YES" \
@@ -50,8 +51,8 @@ echo "confirmation"
 osascript -e 'tell application "System Events"' \
  -e 'tell window 1 of process "SecurityAgent"' \
  -e 'tell scroll area 1 of group 1' \
- -e 'set value of text field 1 to "distiller"' \
- -e 'set value of text field 2 to "password"' \
+ -e 'set value of text field 1 to "voiceover"' \
+ -e "set value of text field 2 to \"$AUTO_VO_PASSWORD\""  \
  -e "end tell" \
  -e "end tell" \
  -e "end tell"
