@@ -11,7 +11,6 @@ sudo touch /var/db/.AppleSetupDone
 echo "copying script"
 sudo cp bin/start /Users/voiceover
 echo "logging in"
-echo "$AUTO_VO_PASSWORD\n" | sudo login -p -f voiceover
-
+sudo login -p -f voiceover
 echo "create db item"
 sudo touch /var/db/.AppleSetupDone
