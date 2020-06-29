@@ -40,8 +40,6 @@ osascript -e 'tell application "System Events"' \
  -e "key code 48" \
  -e "end tell"
 
-sleep 60
-
 screencapture ~/Desktop/2.png
 
 echo "confirmation"
