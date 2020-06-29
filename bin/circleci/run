@@ -1,5 +1,0 @@
-#!/bin/sh
-
-set -e
-
-sudo su - voiceover -c '/Users/voiceover/bin/start "https://google.com" "Search"'
