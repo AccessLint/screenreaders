@@ -8,55 +8,60 @@ set -e
   /usr/libexec/PlistBuddy -c "Add :doNotShowSplashScreen bool YES" \
   ~/Library/Preferences/com.apple.VoiceOverTraining.plist
 
-# open "$1" -a Safari
+# Enable AppleScript
+/usr/libexec/PlistBuddy -c "Set :SCREnableAppleScript YES" \
+  ~/Library/Preferences/com.apple.VoiceOver4/default.plist || \
+  /usr/libexec/PlistBuddy -c "Add :SCREnableAppleScript bool YES" \
+  ~/Library/Preferences/com.apple.VoiceOver4/default.plist
 
-pwd
+sudo /usr/libexec/PlistBuddy -c "Set :SCREnableAppleScript YES" \
+  ~/Library/Preferences/com.apple.VoiceOver4/journal.plist || \
+  /usr/libexec/PlistBuddy -c "Add :SCREnableAppleScript bool YES" \
+  ~/Library/Preferences/com.apple.VoiceOver4/journal.plist
 
-sleep 3
 
 open -a "VoiceOver Utility"
 
 sleep 5
 
-# send key events to check VoiceOver applescript enablement and enter password
-
 screencapture /Users/voiceover/Desktop/before-enable.png
 
-echo "enable applescript"
-osascript -e 'tell application "System Events"' \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 48" \
- -e "key code 49" \
- -e "key code 36" \
- -e "key code 36" \
- -e "key code 48" \
- -e "end tell"
+# echo "enable applescript"
+# osascript -e 'tell application "System Events"' \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 48" \
+#  -e "key code 49" \
+#  -e "key code 36" \
+#  -e "key code 36" \
+#  -e "key code 48" \
+#  -e "end tell"
 
-screencapture /Users/voiceover/Desktop/before-confirmed.png
+# screencapture /Users/voiceover/Desktop/before-confirmed.png
 
-echo "confirmation"
-osascript -e 'tell application "System Events"' \
- -e 'tell window 1 of process "SecurityAgent"' \
- -e 'tell scroll area 1 of group 1' \
- -e 'set value of text field 1 to "voiceover"' \
- -e "set value of text field 2 to \"$AUTO_VO_PASSWORD\""  \
- -e "end tell" \
- -e "end tell" \
- -e "end tell"
-echo "end confirmation"
+# echo "confirmation"
+# osascript -e 'tell application "System Events"' \
+#  -e 'tell window 1 of process "SecurityAgent"' \
+#  -e 'tell scroll area 1 of group 1' \
+#  -e 'set value of text field 1 to "voiceover"' \
+#  -e "set value of text field 2 to \"$AUTO_VO_PASSWORD\""  \
+#  -e "end tell" \
+#  -e "end tell" \
+#  -e "end tell"
+# echo "end confirmation"
+# screencapture /Users/voiceover/Desktop/after-confirmed.png
 
-screencapture /Users/voiceover/Desktop/after-confirmed.png
+open "$1" -a Safari
 
 # start VoiceOver
 /System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
