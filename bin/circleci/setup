@@ -2,33 +2,7 @@
 
 set -e
 
-echo "creating user"
+echo "creating VO user"
 sudo /usr/sbin/sysadminctl -addUser voiceover -fullName "VoiceOver User" -password "$AUTO_VO_PASSWORD" -admin
-echo "disabling setup assistant"
-sudo cp ~/Library/Preferences/com.apple.SetupAssistant.plist /Users/voiceover/Library/Preferences
-echo "create db item"
-sudo touch /var/db/.AppleSetupDone
-echo "copying script"
-sudo cp bin/start /Users/voiceover
-echo "logging in"
-echo "sudo touch /var/db/.AppleSetupDone" | sudo login -p -f voiceover
-
-echo "setting privacy defaults"
-VERSIONNUMBER=5
-SUBMIT_DIAGNOSTIC_DATA_TO_APPLE=FALSE
-SUBMIT_DIAGNOSTIC_DATA_TO_APP_DEVELOPERS=FALSE
-CRASHREPORTER_SUPPORT="/Library/Application Support/CrashReporter"
-
-echo "writing defaults"
-/usr/bin/defaults write "$CRASHREPORTER_SUPPORT"/DiagnosticMessagesHistory AutoSubmit -boolean ${SUBMIT_DIAGNOSTIC_DATA_TO_APPLE}
-echo "writing defaults 2"
-/usr/bin/defaults write "$CRASHREPORTER_SUPPORT"/DiagnosticMessagesHistory AutoSubmitVersion -int ${VERSIONNUMBER}
-echo "writing defaults 3"
-/usr/bin/defaults write "$CRASHREPORTER_SUPPORT"/DiagnosticMessagesHistory ThirdPartyDataSubmit -boolean ${SUBMIT_DIAGNOSTIC_DATA_TO_APP_DEVELOPERS}
-echo "writing defaults 4"
-/usr/bin/defaults write "$CRASHREPORTER_SUPPORT"/DiagnosticMessagesHistory ThirdPartyDataSubmitVersion -int ${VERSIONNUMBER}
-
-/bin/chmod a+r "$CRASHREPORTER_SUPPORT"/DiagnosticMessagesHistory.plist
-sudo /usr/sbin/chown root:admin "$CRASHREPORTER_SUPPORT"/DiagnosticMessagesHistory.plist
 
 exit 0

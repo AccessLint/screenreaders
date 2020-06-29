@@ -10,8 +10,8 @@ jobs: # a basic unit of work in a run
       xcode: 11.5.0 # indicate our selected version of Xcode
     steps: # a series of commands to run
       - checkout  # pull down code from your version control system.
-      - setup
-      - run: /Users/voiceover/start "https://google.com" "Search"
+      # - setup
+      - run: /Users/distiller/start "https://google.com" "Search"
       - store_artifacts: # store this build output. Read more: https://circleci.com/docs/2.0/artifacts/
-          path: /Users/voiceover/Desktop
+          path: /Users/distiller/Desktop
           destination: tmp
