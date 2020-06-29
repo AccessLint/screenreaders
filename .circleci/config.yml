@@ -3,7 +3,7 @@ commands:
   setup:
     description: "Setup user"
     steps:
-      - run: sudo /usr/sbin/sysadminctl -addUser voiceover -fullName "VoiceOver User" -password "$AUTO_VO_PASSWORD" -admin
+      - run: bin/circleci/setup
 jobs: # a basic unit of work in a run
   build: # runs not using `Workflows` must have a `build` job as entry point
     macos:  # indicate that we are using the macOS executor
@@ -11,7 +11,7 @@ jobs: # a basic unit of work in a run
     steps: # a series of commands to run
       - checkout  # pull down code from your version control system.
       - setup
-      - run: su - voiceover -c 'bin/start "https://google.com" "Search"'
+      - run: bin/circleci/run
       - store_artifacts: # store this build output. Read more: https://circleci.com/docs/2.0/artifacts/
           path: ~/Desktop
           destination: tmp

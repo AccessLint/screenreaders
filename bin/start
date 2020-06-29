@@ -70,8 +70,6 @@ osascript -e 'tell application "VoiceOver"' \
 expected="$2"
 actual="$(pbpaste)"
 
-echo $actual
-
 if [[ "$actual" =~ .*"$expected".* ]]; then
   echo "👍 passed assertion"
 else

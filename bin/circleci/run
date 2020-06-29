@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+
+su - voiceover -c 'bin/start "https://google.com" "Search"'
