@@ -10,6 +10,8 @@ set -e
 
 # open "$1" -a Safari
 
+pwd
+
 sleep 3
 
 open -a "VoiceOver Utility"
