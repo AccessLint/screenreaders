@@ -9,5 +9,5 @@ jobs: # a basic unit of work in a run
           name: Run Tests
           command: bin/start "https://google.com" "Search"
       - store_artifacts: # store this build output. Read more: https://circleci.com/docs/2.0/artifacts/
-          path: ~/Desktop/tmp/*.png
-          destination: tmp/
+          path: ~/Desktop
+          destination: tmp
