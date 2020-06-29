@@ -14,6 +14,7 @@ echo "logging in"
 echo "sudo touch /var/db/.AppleSetupDone" | sudo login -p -f voiceover
 
 echo "setting privacy defaults"
+VERSIONNUMBER=5
 SUBMIT_DIAGNOSTIC_DATA_TO_APPLE=FALSE
 SUBMIT_DIAGNOSTIC_DATA_TO_APP_DEVELOPERS=FALSE
 CRASHREPORTER_SUPPORT="/Library/Application Support/CrashReporter"
