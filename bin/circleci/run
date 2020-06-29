@@ -2,4 +2,4 @@
 
 set -e
 
-su - voiceover -c 'bin/start "https://google.com" "Search"'
+sudo su - voiceover -c 'bin/start "https://google.com" "Search"'
