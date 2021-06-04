@@ -4,7 +4,6 @@ Automated VoiceOver screen reader testing on macOS.
 
 ## Usage
 
-    bin/setup && bin/start "<application>"
+    bin/setup && bin/start "<url>" "<expected text>"
 
-Starts the application with VoiceOver and runs a simple assertion on the screen
-reader output.
+Starts the URL in Safari with VoiceOver and checks for the expected output.
