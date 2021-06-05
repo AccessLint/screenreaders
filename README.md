@@ -1,19 +1,18 @@
 # auto-VO
 
-Automated VoiceOver screen reader testing on macOS.
+Automate VoiceOver to test macOS apps in the Cloud.
 
-## Usage
+This script can run on any macOS installation with SIP disabled without _any_ custom configuration of VoiceOver or AppleScript.
+
+This is useful for cloud installations and CI runs where you're not able to manually set user preferences for Accessibility.
+
+## Example Usage
 
 First [Disable SIP](https://apple.stackexchange.com/a/208481) on macOS.
 
-1. Reboot your Mac into Recovery Mode by restarting your computer and holding down Command+R until the Apple logo appears on your screen.
-1. Click Utilities > Terminal.
-1. In the Terminal window, type in `csrutil disable` and press Enter.
-1. Restart your Mac.
-
 Then on the command line, from the project directory:
 
-    $ bin/setup 
+    $ bin/setup
 
     $ bin/start "<url>" "<expected text>"
 
