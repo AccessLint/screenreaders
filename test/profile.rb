@@ -16,10 +16,10 @@ opts = {
 @core = Appium::Core.for(opts) # create a core driver with `opts`
 @driver = @core.start_driver
 
-el = @driver.find_element(:id, 'Profile') # find an element
-el.click
-
-Open3.popen3('test/profile') do |stdin, stdout, stderr, wait_thr|
-    puts stderr.read, stdout.read
-    @driver.quit
+10.times do
+  Open3.popen3('test/commands/move-right') do |stdin, stdout, stderr, wait_thr|
+    puts stdout.read
+  end
 end
+
+@driver.quit
