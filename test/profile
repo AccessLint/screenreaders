@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
+osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
+osascript -e 'tell application "VoiceOver" to move 1 vo cursor'
+
+expected="Profile"
+actual="$(pbpaste)"
+
+if [[ "$actual" =~ .*"$expected".* ]]; then
+  echo "👍 passed assertion" || \
+  exit 0
+else
+  echo "❌failed 1 assertion. Expected \"$expected\" in \"$actual\""
+fi
