@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -e
+
+osascript -e 'tell application "System Events" to key code 124 using {control down, option down}'
+osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
+echo "🗣 $(pbpaste)"

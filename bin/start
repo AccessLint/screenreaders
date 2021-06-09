@@ -2,37 +2,18 @@
 
 set -e
 
-echo "Need root to temporarily override VoiceOver launch settings"
+# echo "Need root to temporarily override VoiceOver launch settings"
 
 # temporarily set VoiceOver daemon launch arguments
 # -p -- skip splash screen
 # -t appname -- limit VoiceOver activity to target app
-sudo launchctl debug gui/$UID/com.apple.VoiceOver -- \
-  "/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOver" \
-  -p \
-  -t "Safari" \
-  launchd -s
+# sudo launchctl debug gui/$UID/com.apple.VoiceOver -- \
+#   "/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOver" \
+#   -p \
+#   -t "Safari" \
+#   launchd -s
 
-# start VoiceOver
-/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter &
+source .env
 
-open "$1" -a Safari
-
-sleep 5
-
-osascript -e 'tell application "VoiceOver" to copy to pasteboard last phrase'
-osascript -e 'tell application "VoiceOver" to grab screenshot vo cursor'
-
-kill "$(pidof VoiceOver)"
-
-expected="$2"
-actual="$(pbpaste)"
-
-open -a Terminal
-
-if [[ "$actual" =~ .*"$expected".* ]]; then
-  echo "👍 passed assertion" || \
-  exit 0
-else
-  echo "❌failed 1 assertion. Expected \"$expected\" in \"$actual\""
-fi
+# start Appium server
+npx appium --default-capabilities "{ \"app\": \"$AUTO_VO_APP\", \"platformName\": \"iOS\", \"platformVersion\": \"$AUTO_VO_IOS_VERSION\" }"

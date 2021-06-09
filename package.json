@@ -1,0 +1,15 @@
+{
+  "name": "auto-vo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ckundo/auto-vo.git",
+  "scripts": {
+    "start": "bin/start",
+    "test": "bin/test"
+  },
+  "author": "Cameron Cundiff <cameron@ckundo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "appium": "^1.21.0"
+  }
+}
