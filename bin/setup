@@ -2,10 +2,8 @@
 
 set -e
 
-/usr/bin/xcodebuild -version || echo "Error: install XCode first." && exit 1
-brew check || brew bundle
-yarn check || yarn install
-
 if [ ! -f ".env" ]; then
     cp ".env.sample" ".env"
 fi
+
+source .env

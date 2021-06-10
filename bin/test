@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# start VoiceOver
-/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter
-
-ruby test/profile.rb
-
-pidof -k "VoiceOver"

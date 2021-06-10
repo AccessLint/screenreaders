@@ -4,12 +4,16 @@
   "main": "index.js",
   "repository": "git@github.com:ckundo/auto-vo.git",
   "scripts": {
-    "start": "bin/start",
-    "test": "bin/test"
+    "build": "source .env && tsc",
+    "setup": "yarn build && node auth.js",
+    "start": "yarn build && node main.js"
   },
+  "type": "module",
   "author": "Cameron Cundiff <cameron@ckundo.com>",
   "license": "MIT",
   "devDependencies": {
-    "appium": "^1.21.0"
+    "@playwright/test": "^1.12.1",
+    "playwright": "^1.12.1",
+    "typescript": "^4.3.2"
   }
 }
