@@ -5,7 +5,7 @@
   "repository": "git@github.com:ckundo/auto-vo.git",
   "scripts": {
     "build": "source .env && tsc",
-    "setup": "yarn build && node auth.js",
+    "auth": "yarn build && node auth.js",
     "start": "yarn build && node main.js"
   },
   "type": "module",

@@ -6,12 +6,16 @@ Automate VoiceOver for iOS application testing with in iOS Simulator.
 
 - First, open VoiceOver Utility and check "Allow VoiceOver to be controller with AppleScript".
 
-Then on the command line, from the project directory:
+Then, set up environment variables (you can set any `URL` in `.env.sample`)
 
     $ bin/setup
 
+Log in to save a signed in state
+
+    $ yarn auth
+
 ## Usage
 
-Launch automated VoiceOver and assert on output:
+Launch automated VoiceOver after you've set up and authed (see above)
 
-    $ bin/test
+    $ yarn start
