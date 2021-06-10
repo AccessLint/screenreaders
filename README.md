@@ -1,6 +1,6 @@
 # auto-VO
 
-Automate VoiceOver for iOS application testing with in iOS Simulator.
+Automate VoiceOver for testing web applications.
 
 ## Setup
 
