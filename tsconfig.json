@@ -2,10 +2,9 @@
   "compilerOptions": {
     "lib": [
       "dom",
-      "es5",
-      "es6"
+      "esnext"
     ],
-    "target": "esnext",
+    "target": "es5",
     "moduleResolution": "node"
   }
 }

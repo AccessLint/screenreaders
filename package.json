@@ -4,16 +4,19 @@
   "main": "index.js",
   "repository": "git@github.com:ckundo/auto-vo.git",
   "scripts": {
-    "build": "source .env && tsc",
-    "auth": "yarn build && node auth.js",
-    "start": "yarn build && node main.js"
+    "build": "tsc",
+    "start": "yarn build && bin/auto-vo.js --url https://example.com --times 1"
   },
-  "type": "module",
+  "bin": {
+    "auto-vo": "bin/auto-vo.js"
+  },
   "author": "Cameron Cundiff <cameron@ckundo.com>",
   "license": "MIT",
   "devDependencies": {
-    "@playwright/test": "^1.12.1",
     "playwright": "^1.12.1",
     "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5"
   }
 }
