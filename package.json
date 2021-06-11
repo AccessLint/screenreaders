@@ -5,7 +5,8 @@
   "repository": "git@github.com:ckundo/auto-vo.git",
   "scripts": {
     "build": "tsc",
-    "start": "yarn build && bin/auto-vo.js --url https://example.com --times 1"
+    "start": "yarn build && bin/auto-vo.js --url https://example.com --times 1",
+    "test": "yarn build && mocha"
   },
   "bin": {
     "auto-vo": "bin/auto-vo.js"
@@ -13,10 +14,15 @@
   "author": "Cameron Cundiff <cameron@ckundo.com>",
   "license": "MIT",
   "devDependencies": {
-    "playwright": "^1.12.1",
+    "@types/chai": "^4.2.18",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.0",
+    "ts-node": "^10.0.0",
     "typescript": "^4.3.2"
   },
   "dependencies": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "playwright": "^1.12.1"
   }
 }

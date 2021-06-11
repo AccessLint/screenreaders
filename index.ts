@@ -10,7 +10,7 @@ const pasteLast = "pbpaste";
 export async function run({ url, times }: {
   url: string,
   times?: number,
-}): Promise<void> {
+}): Promise<string[]> {
   let results = [];
 
   const browser = await chromium.launch({ headless: false });
@@ -30,12 +30,12 @@ export async function run({ url, times }: {
       results.push(stdout);
       i++;
     }
-
-    console.log(results);
   } catch(err) {
-
+    console.error(err);
   } finally {
     await sh(stopVoiceOver);
     await browser.close();
+
+    return results;
   }
 };

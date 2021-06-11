@@ -4,5 +4,7 @@ const minimist = require('minimist');
 export async function cli(argv: string[]) {
   const { url, times } = minimist(argv);
 
-  run({ url, times });
+  const announcements = await run({ url, times });
+
+  console.log(announcements);
 }
