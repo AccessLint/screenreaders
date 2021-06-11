@@ -2,9 +2,10 @@
   "name": "auto-vo",
   "description": "Automated VoiceOver macOS screen reader runner.",
   "files": [
-    "index.js",
     "bin/*.js",
-    "cli.js"
+    "cli.js",
+    "index.js",
+    "shell.js"
   ],
   "keywords": [
     "accessibility",
