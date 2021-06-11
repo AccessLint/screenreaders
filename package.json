@@ -1,9 +1,17 @@
 {
   "name": "auto-vo",
   "description": "Automated VoiceOver macOS screen reader runner.",
-  "files": [ "index.js", "bin/*.js", "cli.js" ],
-  "keywords": [ "accessibility", "voiceover", "screenreader" ],
-  "version": "1.0.0",
+  "files": [
+    "index.js",
+    "bin/*.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "accessibility",
+    "voiceover",
+    "screenreader"
+  ],
+  "version": "1.0.1",
   "main": "index.js",
   "repository": "git@github.com:ckundo/auto-vo.git",
   "scripts": {
