@@ -6,5 +6,5 @@ export async function cli(argv: string[]) {
 
   const announcements = await run({ url, limit, until });
 
-  console.log(announcements);
+  process.stdout.write(`${announcements}`);
 }
