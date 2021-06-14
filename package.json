@@ -3,6 +3,7 @@
   "description": "Automated VoiceOver macOS screen reader runner.",
   "files": [
     "bin/*.js",
+    "osascripts/*.js",
     "cli.js",
     "index.js",
     "shell.js"
