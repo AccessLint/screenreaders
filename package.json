@@ -12,7 +12,7 @@
     "voiceover",
     "screenreader"
   ],
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.js",
   "repository": "git@github.com:ckundo/auto-vo.git",
   "scripts": {
