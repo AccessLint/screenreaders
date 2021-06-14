@@ -23,11 +23,15 @@ export async function run({ url, limit, until }: {
     await page.goto(url);
 
     let i = 0;
-    while (i < limit) {
+    let match = false;
+
+    while (i < limit && !match) {
       await sh(COMMANDS.moveRight);
       const { stdout } = await sh(COMMANDS.getLastPhrase);
       results.push(stdout);
-      if (stdout.match(until)) { return results; }
+      if (until && stdout.length > 0 && stdout.match(until)) {
+        match = true;
+      }
       i++;
     }
   } catch(err) {

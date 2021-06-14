@@ -8,5 +8,5 @@ describe('loading example.com', async () => {
     const announcements = await run(options);
 
     expect(announcements).to.include.members(['Example Domain web content\n']);
-  }).timeout(5000);
+  }).timeout(10000);
 });
