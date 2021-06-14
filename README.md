@@ -19,7 +19,10 @@ Running the cli outputs the phrases spoken by the screen reader to stdout.
     $ npx auto-vo --url https://example.com --times 5
 
 `--url URL` - where URL is the url to test
-`--times n` - where n is the number of times to move the VoiceOver cursor
+
+`--limit n` - where n is the maximum number of cursor moves
+
+`--until s` - where s is a search term, after which the script ends. supercedes `--limit`.
 
 ### Node Module
 
@@ -29,7 +32,7 @@ Running the cli outputs the phrases spoken by the screen reader to stdout.
 import { run } from 'auto-vo';
 
 (async function() {
-    const options = { url: "https://www.example.com", times: 10 };
+    const options = { url: "https://www.example.com", limit: 10, match: 'Example' };
 
     const announcements = await run(options);
 
@@ -46,11 +49,11 @@ import { expect } from 'chai';
 
 describe('loading example.com', async () => {
   it('returns announcements', async () => {
-    const options = { url: "https://www.example.com", times: 10 };
+    const options = { url: "https://www.example.com", limit: 10, match: 'Example' };
 
     const announcements = await run(options);
 
     expect(announcements).to.include.members(["Example Domain web content"]);
-  }).timeout(10000);
+  }).timeout(5000);
 });
 ```

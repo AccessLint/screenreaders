@@ -1,15 +1,17 @@
 import { chromium } from 'playwright';
 import { sh } from './shell.js'
 
-const launchVoiceOver = "/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter";
-const stopVoiceOver = "osascript -e 'tell application \"System Events\" to key code 96 using {command down}'";
-const moveRight = "osascript -e 'tell application \"System Events\" to key code 124 using {control down, option down}'";
-const copyLastPhrase = "osascript -e 'tell application \"VoiceOver\" to copy to pasteboard last phrase'";
-const pasteLast = "pbpaste";
+const COMMANDS = {
+  launchVoiceOver: "/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter",
+  stopVoiceOver: `./osascripts/stopVoiceover.js`,
+  moveRight: './osascripts/moveRight.js',
+  getLastPhrase: './osascripts/getLastPhrase.js',
+}
 
-export async function run({ url, times }: {
+export async function run({ url, limit, until }: {
   url: string,
-  times?: number,
+  limit?: number,
+  until?: string,
 }): Promise<string[]> {
   let results = [];
 
@@ -17,23 +19,21 @@ export async function run({ url, times }: {
 
   try {
     const page = await browser.newPage();
-
-    await sh(launchVoiceOver);
-
+    await sh(COMMANDS.launchVoiceOver);
     await page.goto(url);
 
     let i = 0;
-    while (i < times) {
-      await sh(moveRight);
-      await sh(copyLastPhrase);
-      const { stdout } = await sh(pasteLast);
+    while (i < limit) {
+      await sh(COMMANDS.moveRight);
+      const { stdout } = await sh(COMMANDS.getLastPhrase);
       results.push(stdout);
+      if (stdout.match(until)) { return results; }
       i++;
     }
   } catch(err) {
     console.error(err);
   } finally {
-    await sh(stopVoiceOver);
+    await sh(COMMANDS.stopVoiceOver);
     await browser.close();
 
     return results;
