@@ -4,7 +4,9 @@ Automate VoiceOver for testing web applications.
 
 ## Setup
 
-- First, open VoiceOver Utility and check "Allow VoiceOver to be controller with AppleScript".
+### Enable AppleScript
+
+- Open VoiceOver Utility and check "Allow VoiceOver to be controller with AppleScript".
 
 ## Installation
 
@@ -16,7 +18,7 @@ Automate VoiceOver for testing web applications.
 
 Running the cli outputs the phrases spoken by the screen reader to stdout.
 
-    $ npx auto-vo --url https://example.com --times 5
+    $ npx auto-vo --url https://example.com --limit 5 --until 'Example'
 
 `--url URL` - where URL is the url to test
 
@@ -32,7 +34,7 @@ Running the cli outputs the phrases spoken by the screen reader to stdout.
 import { run } from 'auto-vo';
 
 (async function() {
-    const options = { url: "https://www.example.com", limit: 10, match: 'Example' };
+    const options = { url: "https://www.example.com", limit: 10, until: 'Example' };
 
     const announcements = await run(options);
 
@@ -43,13 +45,15 @@ import { run } from 'auto-vo';
 
 ### Example Test Runner
 
+Using mocha/chai:
+
 ```typescript
 import { run } from 'auto-vo';
 import { expect } from 'chai';
 
 describe('loading example.com', async () => {
   it('returns announcements', async () => {
-    const options = { url: "https://www.example.com", limit: 10, match: 'Example' };
+    const options = { url: "https://www.example.com", limit: 10, until: 'Example' };
 
     const announcements = await run(options);
 
