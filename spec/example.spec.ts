@@ -3,10 +3,10 @@ import { expect } from 'chai';
 
 describe('loading example.com', async () => {
   it('returns announcements', async () => {
-    const options = { url: 'https://www.example.com', limit: 10, until: 'Example Domain' };
+    const options = { url: 'https://www.smashingmagazine.com', limit: 500, until: 'Founded by Vitaly Friedman and Sven Lennartz.' };
 
     const announcements = await run(options);
-
-    expect(announcements).to.include.members(['Example Domain web content\n']);
-  }).timeout(10000);
+    const page = announcements.join();
+    expect(page).to.have.string("heading level 1")
+  }).timeout(180000);
 });
