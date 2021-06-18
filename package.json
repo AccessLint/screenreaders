@@ -15,7 +15,14 @@
   ],
   "version": "1.1.3",
   "main": "index.js",
-  "repository": "git@github.com:ckundo/auto-vo.git",
+  "bugs": {
+    "url": "https://github.com/ckundo/auto-vo/issues",
+    "email": "github@ckundo.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ckundo/auto-vo.git"
+  },
   "scripts": {
     "build": "tsc",
     "start": "yarn build && bin/auto-vo.js --url https://example.com --times 1",
