@@ -4,14 +4,17 @@ import { sh } from './shell.js'
 const COMMANDS = {
   launchVoiceOver: "/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter",
   stopVoiceOver: `./osascripts/stopVoiceover.js`,
+  setup: `./osascripts/setup.js`,
   moveRight: './osascripts/moveRight.js',
   getLastPhrase: './osascripts/getLastPhrase.js',
+  goToTop: './osascripts/goToTop.js',
 }
 
-export async function run({ url, limit, until }: {
+export async function run({ url, limit, until, quiet }: {
   url: string,
   limit?: number,
   until?: string,
+  quiet?: boolean,
 }): Promise<string[]> {
   let results = [];
 
@@ -20,6 +23,7 @@ export async function run({ url, limit, until }: {
   try {
     const page = await browser.newPage();
     await sh(COMMANDS.launchVoiceOver);
+    await sh(COMMANDS.setup);
     await page.goto(url);
 
     let i = 0;
@@ -28,7 +32,10 @@ export async function run({ url, limit, until }: {
     while (i < limit && !match) {
       await sh(COMMANDS.moveRight);
       const { stdout } = await sh(COMMANDS.getLastPhrase);
+
+      if (!quiet) { process.stdout.write(stdout) };
       results.push(stdout);
+
       if (until && stdout.length > 0 && stdout.match(until)) {
         match = true;
       }
