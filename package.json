@@ -6,7 +6,8 @@
     "osascripts/*.js",
     "cli.js",
     "index.js",
-    "shell.js"
+    "shell.js",
+    "*.d.ts"
   ],
   "keywords": [
     "accessibility",
