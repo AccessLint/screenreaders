@@ -26,6 +26,8 @@ Running the cli outputs the phrases spoken by the screen reader to stdout.
 
 `--until s` - where s is a search term, after which the script ends. supercedes `--limit`.
 
+`--quiet` - do not print to stdout
+
 ### Node Module
 
     $ npm install --save-dev auto-vo
@@ -53,7 +55,7 @@ import { expect } from 'chai';
 
 describe('loading example.com', async () => {
   it('returns announcements', async () => {
-    const options = { url: "https://www.example.com", limit: 10, until: 'Example' };
+    const options = { url: "https://www.example.com", limit: 10, until: 'Example', quiet: true };
 
     const announcements = await run(options);
 
