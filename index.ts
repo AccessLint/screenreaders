@@ -41,8 +41,6 @@ export async function run({ url, limit, until, quiet }: {
       }
       i++;
     }
-  } catch(err) {
-    console.error(err);
   } finally {
     await sh(COMMANDS.stopVoiceOver);
     await browser.close();
