@@ -14,7 +14,7 @@
     "voiceover",
     "screenreader"
   ],
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "index.js",
   "bugs": {
     "url": "https://github.com/ckundo/auto-vo/issues",
