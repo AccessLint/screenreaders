@@ -1,14 +1,14 @@
 import { chromium } from 'playwright';
-import { sh } from './shell.js'
+import { sh } from './shell.js';
+import * as path from 'path';
 
 const COMMANDS = {
-  launchVoiceOver: "/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter",
-  stopVoiceOver: `./osascripts/stopVoiceover.js`,
-  setup: `./osascripts/setup.js`,
-  moveRight: './osascripts/moveRight.js',
-  getLastPhrase: './osascripts/getLastPhrase.js',
-  goToTop: './osascripts/goToTop.js',
-}
+  launchVoiceOver: '/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter',
+  stopVoiceOver: path.resolve(__dirname, 'osascripts/stopVoiceover.js'),
+  setup: path.resolve(__dirname, 'osascripts/setup.js'),
+  moveRight: path.resolve(__dirname, 'osascripts/moveRight.js'),
+  getLastPhrase: path.resolve(__dirname, 'osascripts/getLastPhrase.js'),
+};
 
 export async function run({ url, limit, until, quiet }: {
   url: string,
