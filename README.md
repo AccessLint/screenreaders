@@ -8,6 +8,13 @@ Automate VoiceOver for testing web applications.
 
 - Open VoiceOver Utility and check "Allow VoiceOver to be controller with AppleScript".
 
+### VoiceOver settings
+
+The scripts rely on being able to navigate only by using `VO Right` so you have
+to enable fast searching in VoiceOver.
+
+- Open VoiceOver Utility, go to the Navigation tab and check "Enable fast searching".
+
 ## Installation
 
     $ npm install auto-vo
