@@ -5,7 +5,6 @@ import * as path from 'path';
 const COMMANDS = {
   launchVoiceOver: '/System/Library/CoreServices/VoiceOver.app/Contents/MacOS/VoiceOverStarter',
   stopVoiceOver: path.resolve(__dirname, 'osascripts/stopVoiceover.js'),
-  setup: path.resolve(__dirname, 'osascripts/setup.js'),
   moveRight: path.resolve(__dirname, 'osascripts/moveRight.js'),
   getLastPhrase: path.resolve(__dirname, 'osascripts/getLastPhrase.js'),
 };
@@ -22,15 +21,17 @@ export async function run({ url, limit, until, quiet }: {
 
   try {
     const page = await browser.newPage();
+
     await sh(COMMANDS.launchVoiceOver);
-    await sh(COMMANDS.setup);
-    await page.goto(url);
+    await page.waitForTimeout(1000);
+    await page.goto(url, { waitUntil: 'domcontentloaded' });
 
     let i = 0;
     let match = false;
 
     while (i < limit && !match) {
       await sh(COMMANDS.moveRight);
+      await page.waitForTimeout(100);
       const { stdout } = await sh(COMMANDS.getLastPhrase);
 
       if (!quiet) { process.stdout.write(stdout) };

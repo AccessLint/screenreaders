@@ -3,7 +3,5 @@
 function run() {
   const voiceOver = Application('VoiceOver');
 
-  if (voiceOver.captionWindow.enabled) {
-    return voiceOver.lastPhrase.content();
-  }
+  return voiceOver.lastPhrase.content();
 }
