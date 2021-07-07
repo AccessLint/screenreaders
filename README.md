@@ -6,7 +6,7 @@ Automate VoiceOver for testing web applications.
 
 ## Installation
 
-    `$ npm install -g auto-vo`
+    $ npm install -g auto-vo
 
 ## Setup
 
