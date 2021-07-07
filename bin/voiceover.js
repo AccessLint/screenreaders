@@ -1,40 +1,16 @@
 #!/usr/bin/env node
 
-const { VoiceOver, rotor, moveRight, startInteracting } = require('../VoiceOver.js'); 
-
-const Commands = new Map([
-  ["rotor", rotor],
-  ["move right", moveRight],
-  ["move in", startInteracting],
-]);
-
-const readline = require('readline').createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  prompt: "command > ",
-})
+const { VoiceOver } = require('../VoiceOver.js');
 
 const voiceOver = new VoiceOver();
 voiceOver.launch();
 
-function exit () {
-  readline.close();
+function exit() {
   voiceOver.stop();
   process.exit(0);
 }
 
-readline.prompt();
-
-readline.on('line', async (line) => {
-  const input = line.trim();
-  if (!Commands.has(input)) { return false }
-  const command = Commands.get(input);
-  await voiceOver.execute(command);
-  readline.prompt();
-}).on('close', () => {
-  exit();
-});
-
-readline.on('SIGINT', () => {
+process.stdin.resume();
+process.on('SIGINT', () => {
   exit();
 })
