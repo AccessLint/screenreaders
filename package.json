@@ -44,6 +44,6 @@
   },
   "dependencies": {
     "minimist": "^1.2.5",
-    "playwright": "^1.12.2"
+    "playwright-webkit": "^1.12.3"
   }
 }

@@ -598,10 +598,10 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.0.tgz"
   integrity sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==
 
-playwright@^1.12.2:
-  version "1.12.2"
-  resolved "https://registry.npmjs.org/playwright/-/playwright-1.12.2.tgz"
-  integrity sha512-tSZGeILY70T4imhCMCsvzhoaDm9baosIG5fQncSWprpjVc/X4yYdBQCLBMvOi98H50hvu9fhgy2hpsgFKCsUaw==
+playwright-webkit@^1.12.3:
+  version "1.12.3"
+  resolved "https://registry.yarnpkg.com/playwright-webkit/-/playwright-webkit-1.12.3.tgz#455e88ee7024677c45d062921ee101dde21ed630"
+  integrity sha512-a7GMKgY2gqhzKjbXNzqiS+YjFNoOtPYfuCBzkhzxBvixzxTjWv5uoQ0YYD4jV58bshVaPx7Wfh0hhMmBVp5Hdw==
   dependencies:
     commander "^6.1.0"
     debug "^4.1.1"

@@ -7,6 +7,6 @@ describe('loading example.com', async () => {
 
     const announcements = await run(options);
     const page = announcements.join('');
-    expect(page).to.have.string('Example')
-  }).timeout(180000);
+    expect(page).to.have.string('link More information')
+  }).timeout(30000);
 });
