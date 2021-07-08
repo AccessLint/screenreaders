@@ -3,10 +3,10 @@
 const { VoiceOver } = require('../VoiceOver.js');
 
 const voiceOver = new VoiceOver();
-voiceOver.launch();
+await voiceOver.launch();
 
 function exit() {
-  voiceOver.stop();
+  await voiceOver.stop();
   process.exit(0);
 }
 
