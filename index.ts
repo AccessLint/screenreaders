@@ -36,7 +36,7 @@ export async function run({ url, limit, until, quiet }: {
       await page.waitForTimeout(10);
       const lastPhrase: string = await voiceOver.lastPhrase();
 
-      if (!quiet) { process.stdout.write(lastPhrase) };
+      if (!quiet) { console.log(lastPhrase); };
       results.push(lastPhrase);
 
       if (until && lastPhrase.length > 0 && lastPhrase.match(until)) {
