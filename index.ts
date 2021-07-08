@@ -1,5 +1,6 @@
 import { webkit } from 'playwright-webkit';
-import { VoiceOver, moveRight, startInteracting } from './VoiceOver.js'
+import { VoiceOver } from './VoiceOver.js'
+import { moveRight, startInteracting } from './Commands.js'
 
 export async function run({ url, limit, until, quiet }: {
   url: string,

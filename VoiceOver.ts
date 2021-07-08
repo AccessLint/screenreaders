@@ -2,32 +2,7 @@ import { run as jxaRun } from '@jxa/run';
 import { exec } from 'child_process';
 import "@jxa/global-type";
 
-interface Command {
-  keyCode: number;
-  modifiers: string[];
-  name?: string;
-  description?: string;
-}
-
-export const rotor: Command = {
-  name: "Rotor",
-  description: "VO+U",
-  keyCode: 32,
-  modifiers: ['control down', 'option down']
-};
-
-export const moveRight: Command = {
-  name: "Move Right",
-  description: "VO+right arrow",
-  keyCode: 124,
-  modifiers: ['control down', 'option down']
-};
-
-export const startInteracting: Command = {
-  name: "Start Interacting with Item",
-  keyCode: 125,
-  modifiers: ['control down', 'option down', 'shift down']
-};
+import { Command } from './Commands.js';
 
 export class VoiceOver {
   public launch(): Promise<{ stdout: string; stderr: string; }> {
@@ -58,7 +33,6 @@ export class VoiceOver {
   }
 
   public execute(command: Command): Promise<unknown> {
-    console.log(command);
     return jxaRun(({keyCode, modifiers}) => {
       const systemEvents = Application('System Events');
       systemEvents.keyCode(keyCode, { using: modifiers });

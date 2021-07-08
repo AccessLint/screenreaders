@@ -5,6 +5,8 @@
     "bin/*.js",
     "cli.js",
     "index.js",
+    "Commands.js",
+    "Commands.ts",
     "VoiceOver.js",
     "VoiceOver.ts",
     "*.d.ts"
