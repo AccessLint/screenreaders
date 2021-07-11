@@ -10,7 +10,25 @@ async function exit() {
 }
 
 (async () => {
-  await voiceOver.launch();
+  try {
+    await voiceOver.launch();
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+
+  let current, previous = null;
+
+  setInterval(async () => {
+    try {
+      current = await voiceOver.lastPhrase();
+      if (current.trim() === previous) { return };
+      console.log(current);
+      previous = current.trim();
+    } catch (err) {
+      console.warn(err);
+    }
+  }, 100);
 })();
 
 
