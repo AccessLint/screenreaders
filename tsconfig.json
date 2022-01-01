@@ -4,10 +4,12 @@
       "dom",
       "esnext"
     ],
-    "target": "es5",
+    "target": "esnext",
     "module": "commonjs",
     "moduleResolution": "node",
-    "declaration": true
+    "declaration": true,
+    "outDir": "./lib",
+    "rootDir": "./src"
   },
-  "exclude": ["node_modules", "spec"]
+  "exclude": ["node_modules", "spec", "lib"]
 }

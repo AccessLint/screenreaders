@@ -1,13 +1,14 @@
 import { webkit } from 'playwright-webkit';
-import { VoiceOver } from './VoiceOver.js'
-import { moveRight, startInteracting } from './Commands.js'
+import { VoiceOver, moveRight, startInteracting } from 'voiceover';
 
-export async function run({ url, limit, until, quiet }: {
-  url: string,
-  limit?: number,
-  until?: string,
-  quiet?: boolean,
-}): Promise<string[]> {
+export interface AutoVoOptions {
+  url: string;
+  until?: string;
+  quiet?: boolean;
+  limit?: number;
+}
+
+export async function run({ url, limit, until, quiet }: AutoVoOptions): Promise<string[]> {
   let results = [];
   const voiceOver = new VoiceOver();
   await voiceOver.launch();
@@ -23,6 +24,7 @@ export async function run({ url, limit, until, quiet }: {
     await voiceOver.execute(moveRight);
     await voiceOver.execute(moveRight);
     await voiceOver.execute(moveRight);
+
 
     // // enter web area
     await voiceOver.execute(startInteracting);
@@ -44,8 +46,10 @@ export async function run({ url, limit, until, quiet }: {
       }
       i++;
     }
+  } catch(error) {
+    console.warn(error);
   } finally {
-    await voiceOver.stop();
+    await voiceOver.quit();
     await browser.close();
 
     return results;

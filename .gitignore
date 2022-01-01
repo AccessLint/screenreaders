@@ -1,6 +1,5 @@
 .env
 node_modules/
 tmp/
-/*.js
-*.d.ts
+lib/
 *.log
