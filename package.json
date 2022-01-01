@@ -3,9 +3,8 @@
   "description": "Automated VoiceOver macOS screen reader runner.",
   "files": [
     "bin/*.js",
-    "cli.js",
-    "index.js",
-    "*.d.ts"
+    "lib/index.js",
+    "./lib/index.d.ts"
   ],
   "keywords": [
     "accessibility",
@@ -13,7 +12,8 @@
     "screenreader"
   ],
   "version": "1.4.0",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "bugs": {
     "url": "https://github.com/ckundo/auto-vo/issues",
     "email": "github@ckundo.com"
