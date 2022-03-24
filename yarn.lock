@@ -856,10 +856,10 @@ typescript@^4.3.2:
   resolved "https://registry.npmjs.org/typescript/-/typescript-4.3.2.tgz"
   integrity sha512-zZ4hShnmnoVnAHpVHWpTcxdv7dWP60S2FsydQLV8V5PbS3FifjWFFRiHSWpDJahly88PRyV5teTSLoq4eG7mKw==
 
-voiceover@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/voiceover/-/voiceover-0.0.2.tgz#f18c1b0dcf977f32ee94ecfff05a71a7592e47d0"
-  integrity sha512-DB1YXq3tFUoqyi9KADS1YqB12jVErWb57tST55UFxVmr6p54XKSZItKa8ZRME2y3gW3GJmqqy6x6QuGbNSnEPQ==
+voiceover@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/voiceover/-/voiceover-0.2.0.tgz#34a7c22dd2df7e5ca92ca03c89d76d8c2dae856d"
+  integrity sha512-WJGnBVPsMfnV4jj+JVoShdTGhTLhUWkadgXbSrFlbwKlE085BhPoaL9fGydYEIyrb3mLPlc+bGZHCpMzfzyX2Q==
   dependencies:
     "@jxa/global-type" "^1.3.4"
     "@jxa/run" "^1.3.4"

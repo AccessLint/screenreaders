@@ -44,6 +44,6 @@
   "dependencies": {
     "minimist": "^1.2.5",
     "playwright-webkit": "^1.17.1",
-    "voiceover": "^0.0.2"
+    "voiceover": "^0.2.0"
   }
 }
