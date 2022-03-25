@@ -11,7 +11,7 @@
     "voiceover",
     "screenreader"
   ],
-  "version": "1.7.1",
+  "version": "1.7.2",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "bugs": {
@@ -41,6 +41,7 @@
     "typescript": "^4.3.2"
   },
   "dependencies": {
+    "auto-vo": "^1.7.1",
     "minimist": "^1.2.5",
     "playwright-webkit": "^1.17.1",
     "voiceover": "^0.2.0"
