@@ -2,6 +2,8 @@
 
 Automate VoiceOver for testing web applications.
 
+## For Standalone Voiceover driver, see https://github.com/AccessLint/voiceover.js
+
 ## Setup
 
 ## Installation
