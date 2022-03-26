@@ -2,7 +2,7 @@ import { run } from './index.js';
 const minimist = require('minimist');
 
 export async function cli(argv: string[]) {
-  const { url, limit, until, quiet } = minimist(argv);
+  const options = minimist(argv);
 
-  await run({ url, limit, until, quiet });
+  await run(options);
 }

@@ -12,6 +12,9 @@ export async function run({ url, limit, until, quiet }: AutoVoOptions): Promise<
   let results = [];
   const voiceOver = new VoiceOver();
   await voiceOver.launch();
+  if (!quiet) {
+    voiceOver.tail();
+  }
 
   const browser = await webkit.launch({ headless: false });
 
@@ -19,39 +22,14 @@ export async function run({ url, limit, until, quiet }: AutoVoOptions): Promise<
     const page = await browser.newPage();
 
     await page.goto(url, { waitUntil: 'domcontentloaded' });
-
-    // traverse browser chrome
-    await voiceOver.execute(moveRight);
-    await voiceOver.execute(moveRight);
-    await voiceOver.execute(moveRight);
-
-
-    // // enter web area
+    await voiceOver.rotor({ menu: "Window Spots", find: "content" });
     await voiceOver.execute(startInteracting);
-    await page.waitForTimeout(10);
-
-    let i = 0;
-    let match = false;
-
-    while (i < limit && !match) {
-      await voiceOver.execute(moveRight);
-      await page.waitForTimeout(10);
-      const lastPhrase: string = await voiceOver.lastPhrase();
-
-      if (!quiet) { console.log(lastPhrase); };
-      results.push(lastPhrase);
-
-      if (until && lastPhrase.length > 0 && lastPhrase.match(until)) {
-        match = true;
-      }
-      i++;
-    }
+    results = await voiceOver.seek({ text: until, tries: limit });
   } catch(error) {
     console.warn(error);
   } finally {
     await voiceOver.quit();
     await browser.close();
-
     return results;
   }
 };

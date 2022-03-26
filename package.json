@@ -41,9 +41,8 @@
     "typescript": "^4.3.2"
   },
   "dependencies": {
-    "auto-vo": "^1.7.1",
     "minimist": "^1.2.5",
     "playwright-webkit": "^1.17.1",
-    "voiceover": "^0.2.0"
+    "voiceover": "^0.3.0"
   }
 }

@@ -5,7 +5,6 @@ describe('loading example.com', async () => {
   it("returns announcements", async () => {
     const options: AutoVoOptions = {
       url: "https://www.example.com",
-      limit: 10,
       until: "link More information",
     };
 
