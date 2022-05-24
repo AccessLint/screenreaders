@@ -8,7 +8,7 @@ Automate VoiceOver for testing web applications.
 
 ## Installation
 
-    $ npm install -g auto-vo
+    npm install -g auto-vo
 
 ## Setup
 
@@ -27,7 +27,7 @@ Automate VoiceOver for testing web applications.
 
 Running the cli outputs the phrases spoken by the screen reader to stdout.
 
-    $ npx auto-vo --url https://example.com --limit 5 --until 'Example'
+    npx auto-vo --url https://example.com --limit 5 --until 'Example'
 
 `--url URL` - where URL is the url to test
 
@@ -39,7 +39,7 @@ Running the cli outputs the phrases spoken by the screen reader to stdout.
 
 ### Node Module
 
-    $ npm install --save-dev auto-vo
+    npm install --save-dev auto-vo
 
 ```typescript
 import { run } from 'auto-vo';
