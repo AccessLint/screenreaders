@@ -1,6 +1,7 @@
 {
   "name": "@accesslint/voiceover",
-  "version": "0.5.1",
+  "author": "Cameron Cundiff",
+  "version": "0.5.3",
   "description": "macOS VoiceOver Typescript interface and CLI",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,18 +17,17 @@
     "build": "rimraf lib && tsc",
     "test": "playwright test"
   },
-  "repository": "git+https://github.com/AccessLint/VoiceOver.js.git",
+  "repository": "https://github.com/AccessLint/screenreaders",
   "keywords": [
     "voiceover",
     "screenreader",
     "accessibility"
   ],
-  "author": "Cameron Cundiff",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AccessLint/VoiceOver.js/issues"
+    "url": "https://github.com/AccessLint/screenreaders/issues"
   },
-  "homepage": "https://github.com/AccessLint/VoiceOver.js#readme",
+  "homepage": "https://github.com/AccessLint/screenreaders/blob/main/packages/voiceover/README.md",
   "devDependencies": {
     "@playwright/test": "^1.20.1",
     "@types/chai": "^4.2.21",
@@ -45,8 +45,7 @@
     "@jxa/run": "^1.3.4",
     "@jxa/types": "^1.3.4"
   },
-  "private": false,
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   }
 }
