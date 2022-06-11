@@ -1,48 +1,9 @@
 {
-  "name": "auto-vo",
-  "description": "Automated VoiceOver macOS screen reader runner.",
-  "files": [
-    "bin/*.js",
-    "lib/*.js",
-    "lib/index.d.ts"
-  ],
-  "keywords": [
-    "accessibility",
-    "voiceover",
-    "screenreader"
-  ],
-  "version": "1.8.0",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "bugs": {
-    "url": "https://github.com/ckundo/auto-vo/issues",
-    "email": "github@ckundo.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ckundo/auto-vo.git"
-  },
+  "private": true,
+  "workspaces": ["packages/*"],
   "scripts": {
-    "build": "tsc",
-    "start": "yarn build && bin/auto-vo.js --url https://example.com --times 1",
-    "test": "yarn build && mocha"
-  },
-  "bin": {
-    "auto-vo": "bin/auto-vo.js"
-  },
-  "author": "Cameron Cundiff <cameron@ckundo.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/chai": "^4.2.18",
-    "@types/mocha": "^8.2.2",
-    "chai": "^4.3.4",
-    "mocha": "^9.2.2",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.2"
-  },
-  "dependencies": {
-    "minimist": "^1.2.5",
-    "playwright-webkit": "^1.17.1",
-    "voiceover": "^0.3.0"
+    "test:auto-vo": "yarn workspace auto-vo test",
+    "test:voiceover": "yarn workspace @accesslint/voiceover test",
+    "test:browser-tests": "yarn workspace @accesslint/browser-tests test"
   }
 }

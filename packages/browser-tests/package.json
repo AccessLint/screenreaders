@@ -1,0 +1,16 @@
+{
+  "name": "@accesslint/browser-tests",
+  "version": "0.0.0",
+  "description": "Browser tests for VoiceOver using Playwright and voiceover.js",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "playwright test"
+  },
+  "keywords": [],
+  "author": "Cameron Cundiff",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.20.1"
+  }
+}

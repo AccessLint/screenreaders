@@ -1,4 +1,4 @@
-import { run, AutoVoOptions } from '../lib/index.js';
+import { run, AutoVoOptions } from '../src/index';
 import { expect } from 'chai';
 
 describe('loading example.com', async () => {

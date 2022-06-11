@@ -1,5 +1,5 @@
 import { webkit } from 'playwright-webkit';
-import { VoiceOver, moveRight, startInteracting } from 'voiceover';
+import { VoiceOver, startInteracting } from '@accesslint/voiceover';
 
 export interface AutoVoOptions {
   url: string;
@@ -10,12 +10,8 @@ export interface AutoVoOptions {
 
 export async function run({ url, limit, until, quiet }: AutoVoOptions): Promise<string[]> {
   let results = [];
-  const voiceOver = new VoiceOver();
+  const voiceOver = new VoiceOver({ log: !quiet });
   await voiceOver.launch();
-  if (!quiet) {
-    voiceOver.tail();
-  }
-
   const browser = await webkit.launch({ headless: false });
 
   try {

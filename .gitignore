@@ -1,5 +1,5 @@
+*.log
 .env
+lib/
 node_modules/
 tmp/
-lib/
-*.log
