@@ -1,14 +1,6 @@
-# auto-VO
+# Auto-VO
 
 Automate VoiceOver for testing web applications.
-
-## For Standalone Voiceover driver, see https://github.com/AccessLint/voiceover.js
-
-## Setup
-
-## Installation
-
-    $ npm install -g auto-vo
 
 ## Setup
 
@@ -27,7 +19,7 @@ Automate VoiceOver for testing web applications.
 
 Running the cli outputs the phrases spoken by the screen reader to stdout.
 
-    $ npx auto-vo --url https://example.com --limit 5 --until 'Example'
+    $ npx @accesslint/auto-vo --url https://example.com --limit 5 --until 'Example'
 
 `--url URL` - where URL is the url to test
 
@@ -39,36 +31,5 @@ Running the cli outputs the phrases spoken by the screen reader to stdout.
 
 ### Node Module
 
-    $ npm install --save-dev auto-vo
+For programmatic usage, see [VoiceOver.js](packages/voiceover/README.md), a standalone driver for VoiceOver screen reader on macOS.
 
-```typescript
-import { run } from 'auto-vo';
-
-(async function() {
-    const options = { url: "https://www.example.com", limit: 10, until: 'Example' };
-
-    const announcements = await run(options);
-
-    console.log(announcements);
-})();
-```
-
-
-### Example Test Runner
-
-Using mocha/chai:
-
-```typescript
-import { run } from 'auto-vo';
-import { expect } from 'chai';
-
-describe('loading example.com', async () => {
-  it('returns announcements', async () => {
-    const options = { url: "https://www.example.com", limit: 10, until: 'Example', quiet: true };
-
-    const announcements = await run(options);
-
-    expect(announcements).to.include.members(["Example Domain web content"]);
-  }).timeout(5000);
-});
-```
