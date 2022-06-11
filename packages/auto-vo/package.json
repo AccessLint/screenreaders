@@ -11,13 +11,14 @@
     "voiceover",
     "screenreader"
   ],
-  "version": "1.8.0",
+  "version": "1.8.1",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "bugs": {
     "url": "https://github.com/accesslint/screenreaders/issues"
   },
   "repository": "https://github.com/accesslint/screenreaders",
+  "homepage": "https://github.com/AccessLint/screenreaders/blob/main/packages/auto-vo/README.md",
   "scripts": {
     "build": "tsc",
     "start": "yarn build && bin/auto-vo.js --url https://example.com --times 1",
@@ -31,17 +32,18 @@
   "devDependencies": {
     "@types/chai": "^4.2.18",
     "@types/mocha": "^8.2.2",
+    "@types/node": "^17.0.42",
     "chai": "^4.3.4",
     "mocha": "^9.2.2",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.2"
   },
   "dependencies": {
-    "@accesslint/voiceover": "^0.5.2",
+    "@accesslint/voiceover": "^0.5.3",
     "playwright-webkit": "^1.22.2",
     "yargs": "^17.5.1"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   }
 }
