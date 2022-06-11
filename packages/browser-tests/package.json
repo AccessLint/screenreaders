@@ -11,6 +11,11 @@
   "author": "Cameron Cundiff",
   "license": "MIT",
   "devDependencies": {
-    "@playwright/test": "^1.20.1"
+    "@playwright/test": "^1.20.1",
+    "ts-node": "^10.8.1"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^8.3.0",
+    "@cucumber/messages": "^19.0.0"
   }
 }
