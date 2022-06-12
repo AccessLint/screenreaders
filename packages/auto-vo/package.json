@@ -11,7 +11,7 @@
     "voiceover",
     "screenreader"
   ],
-  "version": "1.8.2",
+  "version": "1.8.3",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "bugs": {
