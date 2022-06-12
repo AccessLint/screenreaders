@@ -11,7 +11,7 @@
     "voiceover",
     "screenreader"
   ],
-  "version": "1.8.1",
+  "version": "1.8.2",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "bugs": {
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@accesslint/voiceover": "^0.5.3",
+    "minimist": "^1.2.6",
     "playwright-webkit": "^1.22.2",
     "yargs": "^17.5.1"
   },
