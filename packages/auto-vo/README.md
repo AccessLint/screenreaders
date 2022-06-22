@@ -31,5 +31,5 @@ Running the cli outputs the phrases spoken by the screen reader to stdout.
 
 ### Node Module
 
-For programmatic usage, see [VoiceOver.js](packages/voiceover/README.md), a standalone driver for VoiceOver screen reader on macOS.
+For programmatic usage, see [VoiceOver.js](/packages/voiceover/README.md), a standalone driver for VoiceOver screen reader on macOS.
 
