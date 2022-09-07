@@ -1,7 +1,7 @@
 {
   "name": "@accesslint/voiceover",
   "author": "Cameron Cundiff",
-  "version": "0.5.3",
+  "version": "0.5.6",
   "description": "macOS VoiceOver Typescript interface and CLI",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -44,8 +44,5 @@
     "@jxa/global-type": "^1.3.4",
     "@jxa/run": "^1.3.4",
     "@jxa/types": "^1.3.4"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   }
 }

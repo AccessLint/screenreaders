@@ -2,7 +2,7 @@
 
 const { VoiceOver } = require('../lib/VoiceOver.js');
 
-const voiceOver = new VoiceOver();
+const voiceOver = new VoiceOver({ log: true });
 
 async function exit(code = 0) {
   await voiceOver.quit();
@@ -12,7 +12,6 @@ async function exit(code = 0) {
 (async () => {
   try {
     await voiceOver.launch();
-    voiceOver.tail();
   } catch (err) {
     console.error(err);
     exit(1);
