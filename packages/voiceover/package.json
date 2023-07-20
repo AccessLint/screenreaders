@@ -23,7 +23,7 @@
     "screenreader",
     "accessibility"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/AccessLint/screenreaders/issues"
   },
